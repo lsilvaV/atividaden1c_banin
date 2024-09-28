@@ -18,7 +18,7 @@ def criarTabelas():
                     VALORTOTAL NUMERIC NOT NULL,
                     DATAPEDIDO DATE NOT NULL,
                     IDCLIENTE INTEGER NOT NULL,
-                    IDMERC INTEGER NOT NULL
+                    CODMERC INTEGER NOT NULL
                 )
 
         """
@@ -87,6 +87,7 @@ def criarTabelas():
         """
         cursor.execute(sql)
 
+    
 
 
 
@@ -94,7 +95,8 @@ def criarTabelas():
 
 # Usa o try catch pra poder executar a função. Caso já exista o banco, ele não cria 
 try:  
-    criarTabelas()
+    bancoCriado = criarTabelas()
+    
 # Verificando se o banco existe. Existindo, pula a execução e não retorna erro
 except sqlite.OperationalError:
     pass
